@@ -12,7 +12,7 @@ function ProductCard({
   thumbnail: string;
 }) {
   return (
-    <div className="font-general-sans flex items-center flex-col pt-2.5 px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]">
+    <div className="flex items-center flex-col pt-[10px] pb-[25px] px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]">
       <div className="relative w-[282px] h-[150px] rounded-[6.46px]">
         <img
           className="rounded-[6.46px] object-cover w-full h-full"
