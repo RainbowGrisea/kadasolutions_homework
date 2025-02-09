@@ -1,8 +1,13 @@
+import Layout from './Layout';
+import ProductCard from './ProductCard/ProductCard';
+import ProductsHeader from './ProductsHeader';
+
 function Products () {
   return (
-    <div>
-      <h1>Products</h1>
-    </div>
+    <Layout >
+      <ProductsHeader />
+      <ProductCard />
+    </Layout>
   )
 }
 
