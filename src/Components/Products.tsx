@@ -1,12 +1,12 @@
 import Layout from './Layout';
-import ProductCard from './ProductCard/ProductCard';
+import ProductList from './ProductList/ProductList';
 import ProductsHeader from './ProductsHeader';
 
 function Products () {
   return (
     <Layout >
       <ProductsHeader />
-      <ProductCard />
+      <ProductList />
     </Layout>
   )
 }
