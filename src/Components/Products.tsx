@@ -1,14 +1,14 @@
-import Layout from './Layout';
-import ProductList from './ProductList/ProductList';
-import ProductsHeader from './ProductsHeader';
+import Layout from "./Layout";
+import ProductList from "./ProductList/ProductList";
+import ProductsHeader from "./ProductsHeader";
 
-function Products () {
+function Products() {
   return (
-    <Layout >
+    <Layout>
       <ProductsHeader />
       <ProductList />
     </Layout>
-  )
+  );
 }
 
 export default Products;
