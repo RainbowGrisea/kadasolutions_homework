@@ -9,8 +9,7 @@ const useProducts = (skip: number) => {
     const resp = await fetch(
       `https://dummyjson.com/products?skip=${skip}&limit=${limit}`,
     );
-    const data = await resp.json();
-    return data;
+    return await resp.json();
   };
 
   return useQuery({

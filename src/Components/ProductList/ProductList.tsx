@@ -47,6 +47,7 @@ function ProductList() {
                 discountPercentage={discountPercentage}
                 price={price}
                 thumbnail={thumbnail}
+                id={id}
               />
             );
           },

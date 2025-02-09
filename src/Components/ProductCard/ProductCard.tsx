@@ -1,15 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 function ProductCard({
   title,
   description,
   discountPercentage,
   price,
   thumbnail,
+  id,
 }: {
   title: string;
   description: string;
   discountPercentage: number;
   price: number;
   thumbnail: string;
+  id: number; 
 }) {
   return (
     <div className="flex items-center flex-col pt-[10px] pb-[25px] px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]">
@@ -36,14 +40,11 @@ function ProductCard({
           {description}
         </span>
       </div>
-      <button
-        type="button"
-        className="w-[282px] h-[41px] rounded-[26px] bg-black"
-      >
+      <NavLink to={`/product/${id}`} className="w-[282px] h-[41px] rounded-[26px] bg-black flex items-center justify-center">
         <span className="text-white font-semibold text-[16px] leading-[22px]">
           See details
         </span>
-      </button>
+      </NavLink>
     </div>
   );
 }
