@@ -40,7 +40,7 @@ function ProductCard({
           {description}
         </span>
       </div>
-      <NavLink to={`/product/${id}`} className="w-[282px] h-[41px] rounded-[26px] bg-black flex items-center justify-center">
+      <NavLink to={`/products/${id}`} className="w-[282px] h-[41px] rounded-[26px] bg-black flex items-center justify-center">
         <span className="text-white font-semibold text-[16px] leading-[22px]">
           See details
         </span>

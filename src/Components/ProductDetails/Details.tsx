@@ -3,7 +3,7 @@ import Rating from "./Rating";
 
 function Details ({ title, description, price, discountPercentage, rating, stock, brand, category }: DetailsProps) {
   return (
-    <div className="w-[619px] h-[481px]">
+    <div className="flex flex-col justify-center w-[619px] h-[481px]">
       <div className="flex items-center">
         <span className="h-[65px] font-semibold text-[48px] leading-[65px] text-[#323232] line-clamp-1">{title}</span>
         <Rating rating={rating} />
