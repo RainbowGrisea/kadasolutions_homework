@@ -1,9 +1,9 @@
-import starEmpty from '../../assets/icons/star_empty.svg';
-import starFilled from '../../assets/icons/star_filled.svg';
+import starEmpty from "../../assets/icons/star_empty.svg";
+import starFilled from "../../assets/icons/star_filled.svg";
 
 function Rating({ rating }: { rating: number }) {
   return (
-    <div className='flex items-center w-[210px]'>
+    <div className="flex items-center w-[210px]">
       <span className="flex w-[148px] h-[26px] gap-2 items-center mr-[14px]">
         {Array.from({ length: 5 }).map((_, index) => (
           <img

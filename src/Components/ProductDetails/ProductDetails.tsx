@@ -6,7 +6,7 @@ import ProductImages from "./ProductImages";
 
 function ProductDetails() {
   const { id } = useParams();
-  const { data } = useSingleProduct(id ?? '');
+  const { data } = useSingleProduct(id ?? "");
 
   if (!data) {
     return null;
@@ -30,15 +30,15 @@ function ProductDetails() {
         <div className="w-[620px] h-[481px]">
           <ProductImages images={images} />
         </div>
-        <Details  
-         title={title}
-         description={description}
-         price={price}
-         discountPercentage={discountPercentage}
-         rating={rating}
-         stock={stock}
-         brand={brand}
-         category={category}
+        <Details
+          title={title}
+          description={description}
+          price={price}
+          discountPercentage={discountPercentage}
+          rating={rating}
+          stock={stock}
+          brand={brand}
+          category={category}
         />
       </div>
     </Layout>
