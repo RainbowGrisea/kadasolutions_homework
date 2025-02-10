@@ -5,16 +5,38 @@ import useSingleProduct from "../../hooks/useSingleProduct";
 
 function ProductDetails() {
   const { id } = useParams();
+  const { data } = useSingleProduct(id ?? '');
 
-  const {data} = useSingleProduct(id ?? '');
+  if (!data) {
+    return null;
+  }
 
-  console.log(data);
+  const {
+    title,
+    description,
+    price,
+    discountPercentage,
+    rating,
+    stock,
+    brand,
+    category,
+    images,
+  } = data;
 
   return (
     <Layout>
-      <div className="flex pt-[256px]">
-        <img src="" alt="thumbnail" />
-        <Details />
+      <div className="flex font-general-sans pt-[256px]">
+        <img src={`${images[0]}`} className="w-[502px] h-[481px]" alt="thumbnail" />
+        <Details  
+         title={title}
+         description={description}
+         price={price}
+         discountPercentage={discountPercentage}
+         rating={rating}
+         stock={stock}
+         brand={brand}
+         category={category}
+        />
       </div>
     </Layout>
   );
