@@ -1,21 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { productIncrement } from "../constants";
-import { ProductResp } from "../types/ProductResp";
 
-const useProducts = (skip: number) => {
-  const getProducts = async (
-    skip: number,
-    limit: number = productIncrement,
-  ): Promise<ProductResp> => {
+const useProducts = () => {
+  const getProducts = async (pageParam: number = 0, limit: number = productIncrement) => {
     const resp = await fetch(
-      `https://dummyjson.com/products?skip=${skip}&limit=${limit}`,
+      `https://dummyjson.com/products?skip=${pageParam}&limit=${limit}`,
     );
+    if (!resp.ok) {
+      throw new Error("Failed to fetch products");
+    }
     return await resp.json();
   };
 
-  return useQuery<ProductResp>({
-    queryKey: ["products", skip],
-    queryFn: () => getProducts(skip),
+  return useInfiniteQuery({
+    queryKey: ["products"],
+    queryFn: ({ pageParam }) => getProducts(pageParam),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage) => {
+      const nextSkip = lastPage.skip + productIncrement;
+      return nextSkip < lastPage.total ? nextSkip : undefined;
+    },
   });
 };
 
