@@ -4,11 +4,12 @@ import { Product } from "../../types/Product";
 import useProducts from "../../hooks/useProducts";
 import { productIncrement } from "../../constants";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
+import { ClipLoader } from "react-spinners";
 
 function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
   const [skip, setSkip] = useState(0);
-  const { data } = useProducts(skip);
+  const { data, isLoading } = useProducts(skip);
   const observerRef = useRef<HTMLDivElement>(null);
 
   const newProducts = data?.products;
@@ -52,6 +53,16 @@ function ProductList() {
             );
           },
         )}
+        {isLoading &&
+          Array.from({ length: productIncrement }).map(() => (
+            <div className="flex items-center flex-col pt-[10px] pb-[25px] px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]">
+              <ClipLoader
+                loading={isLoading}
+                size={150}
+                aria-label="Loading Spinner"
+              />
+            </div>
+          ))}
         <div ref={observerRef} className="h-[1px]" />
       </div>
     </>

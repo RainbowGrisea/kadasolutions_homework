@@ -3,14 +3,22 @@ import Layout from "../Layout";
 import Details from "./Details";
 import useSingleProduct from "../../hooks/useSingleProduct";
 import ProductImages from "./ProductImages";
+import { ClipLoader } from "react-spinners";
 
 function ProductDetails() {
   const { id } = useParams();
-  const { data } = useSingleProduct(id ?? "");
+  const { data, isLoading } = useSingleProduct(id ?? "");
 
-  if (!data) {
-    return null;
-  }
+  if (isLoading)
+    return (
+      <Layout>
+        <ClipLoader
+          loading={isLoading}
+          size={150}
+          aria-label="Loading Spinner"
+        />
+      </Layout>
+    );
 
   const {
     title,
