@@ -1,8 +1,12 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { productIncrement } from "../constants";
+import { ProductsResp } from "../types/ProductsResp";
 
 const useProducts = () => {
-  const getProducts = async (pageParam: number = 0, limit: number = productIncrement) => {
+  const getProducts = async (
+    pageParam: number = 0,
+    limit: number = productIncrement,
+  ): Promise<ProductsResp> => {
     const resp = await fetch(
       `https://dummyjson.com/products?skip=${pageParam}&limit=${limit}`,
     );

@@ -14,25 +14,27 @@ function ProductList() {
   return (
     <>
       <div className="flex max-w-[1268px] mb-8 justify-center flex-wrap gap-4">
-        {data?.pages.map((page) => 
-          page.products.map(({
-            title,
-            description,
-            discountPercentage,
-            price,
-            thumbnail,
-            id,
-          }) => (
-            <ProductCard
-              key={id}
-              title={title}
-              description={description}
-              discountPercentage={discountPercentage}
-              price={price}
-              thumbnail={thumbnail}
-              id={id}
-            />
-          )),
+        {data?.pages.map((page) =>
+          page.products.map(
+            ({
+              title,
+              description,
+              discountPercentage,
+              price,
+              thumbnail,
+              id,
+            }) => (
+              <ProductCard
+                key={id}
+                title={title}
+                description={description}
+                discountPercentage={discountPercentage}
+                price={price}
+                thumbnail={thumbnail}
+                id={id}
+              />
+            ),
+          ),
         )}
         {isLoading &&
           Array.from({ length: productIncrement }).map((_, index) => (
