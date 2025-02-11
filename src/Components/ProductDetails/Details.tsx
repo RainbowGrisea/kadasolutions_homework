@@ -13,13 +13,13 @@ function Details({
 }: DetailsProps) {
   return (
     <div className="flex flex-col justify-center w-[619px] h-[481px]">
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <span className="h-[65px] font-semibold text-[48px] leading-[65px] text-[#323232] line-clamp-1">
           {title}
         </span>
         <Rating rating={rating} />
       </div>
-      <div className="w-[400px] font-medium text-[24px] leading-[32px] line-clamp-2 mb-[16px]">
+      <div className="font-medium text-[24px] leading-[32px] line-clamp-2 mb-[16px]">
         {description}
       </div>
       <div className="flex flex-col font-medium text-[24px] leading-[32px] line-clamp-2 text-black/60 mb-[27px]">
