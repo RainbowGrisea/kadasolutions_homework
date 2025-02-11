@@ -14,7 +14,7 @@ function ProductList() {
 
   const newProducts = data?.products;
   const total = data?.total;
-  const isMoreToLoad = total && total > products.length;
+  const isMoreToLoad = total ? total > products.length : false;
 
   const handleLoadMore = () => {
     setSkip((prev) => prev + productIncrement);
@@ -54,8 +54,11 @@ function ProductList() {
           },
         )}
         {isLoading &&
-          Array.from({ length: productIncrement }).map(() => (
-            <div className="flex items-center flex-col pt-[10px] pb-[25px] px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]">
+          Array.from({ length: productIncrement }).map((_, index) => (
+            <div
+              key={`spinner${index}`}
+              className="flex items-center flex-col pt-[10px] pb-[25px] px-3 w-[305px] h-[320px] border-[0.65px] rounded-[6px] bg-white border-[#DBDBDB] text-[#323232]"
+            >
               <ClipLoader
                 loading={isLoading}
                 size={150}

@@ -20,6 +20,14 @@ function ProductDetails() {
       </Layout>
     );
 
+  if (!data) {
+    return (
+      <Layout>
+        <div>Product not found</div>
+      </Layout>
+    );
+  }
+
   const {
     title,
     description,

@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Fragment } from "react/jsx-runtime";
 
 export const ProductImages = ({ images }: { images: string[] }) => {
   return (
@@ -25,7 +26,7 @@ export const ProductImages = ({ images }: { images: string[] }) => {
       >
         {images.map((image) => {
           return (
-            <>
+            <Fragment key={image}>
               <SwiperSlide key={image}>
                 <img
                   src={image}
@@ -33,7 +34,7 @@ export const ProductImages = ({ images }: { images: string[] }) => {
                   className="w-full h-full object-cover rounded-[6px]"
                 />
               </SwiperSlide>
-            </>
+            </Fragment>
           );
         })}
       </Swiper>
