@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Products from "./Components/Products";
-import ProductDetails from "./Components/ProductDetails/ProductDetails";
+import Products from "./components/Products";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 function App() {
   return (
